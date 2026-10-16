@@ -156,9 +156,7 @@ https://vercel.com/legal/privacy-policy
 
 Politica de confidențialitate Cloudflare:
 https://www.cloudflare.com/privacypolicy/
-
-Documentație Cloudflare privind cookie-urile:
-https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/`,
+`,
           en: `The website is hosted on Vercel and uses Cloudflare services.
 
 Vercel Privacy Policy:
@@ -166,9 +164,7 @@ https://vercel.com/legal/privacy-policy
 
 Cloudflare Privacy Policy:
 https://www.cloudflare.com/privacypolicy/
-
-Cloudflare Cookie Documentation:
-https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/`,
+`,
         },
       },
       {
