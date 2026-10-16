@@ -30,8 +30,6 @@ const nextConfig = {
               "worker-src 'self' blob:",
             ].join("; "),
           },
-
-          // Prevent MIME sniffing
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
