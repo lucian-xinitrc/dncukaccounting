@@ -180,7 +180,7 @@ export default function Home() {
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-12 left-6 z-20 flex gap-2 sm:left-12 lg:left-24">
+      <div className="absolute bottom-5 left-6 z-20 flex gap-2 sm:left-12 lg:left-24">
         {slides.map((slide, index) => (
           <button
             key={slide.image}
@@ -196,7 +196,7 @@ export default function Home() {
         ))}
       </div>
     </header>
-    <footer className="overflow-hidden dark:bg-black shadow-xl/20 flex justify-center p-20 dark:text-white">
+    <footer className="overflow-hidden dark:bg-black shadow-xl/20 flex justify-center p-10 sm:p-20 dark:text-white">
           <div className="w-full">
           <div className="sm:grid-cols-3 w-full sm:flex gap-5">
             <div className="py-10 sm:p-10 w-full">
