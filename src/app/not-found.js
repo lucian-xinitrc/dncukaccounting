@@ -153,7 +153,7 @@ export default function Home() {
                 </div>
                 <div className="bg-black border border-white/10 rounded-full p-1 flex font-bold my-2 ">
                   <div className="p-2 bg-white rounded-full text-black px-5">
-                    {language === "en" ? "Saturday" : "Sambata"}
+                    {language === "en" ? "Saturday" : "Sâmbată"}
                   </div>
                   <p className="my-0.5 mx-2 text-white text-lg pt-1">
                     10:00 - 15:00
@@ -161,10 +161,10 @@ export default function Home() {
                 </div>
                 <div className="bg-black border border-white/10 rounded-full p-1 flex font-bold my-2 ">
                   <div className="p-2 bg-white rounded-full text-black px-5">
-                    {language === "en" ? "Sunday" : "Duminica"}
+                    {language === "en" ? "Sunday" : "Duminică"}
                   </div>
                   <p className="my-0.5 mx-2 text-white text-lg pt-1">
-                    {language === "en" ? "Closed" : "Inchis"}
+                    {language === "en" ? "Closed" : "Închis"}
                   </p>
                 </div>
               </div>
