@@ -401,31 +401,30 @@ https://www.dncukaccounting.org`,
                 <h2 className="ml-5 text-1xl">EN9 1JH</h2>
               </div>
               <div>
-                <div className="bg-black border border-white/10 rounded-full p-1 flex font-bold my-2 ">
-                 <div className="p-2 bg-white rounded-full text-black px-5 text-sm sm:text-md">
+                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 w-full">
+                  <div className="w-[300px] p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
                     {language === "en" ? "Monday - Friday" : "Luni - Vineri"}
                   </div>
-                  <p className="my-0.5 mx-2 text-white text-lg pt-1">
+                  <p className="w-[300px] my-0.5 mx-2 text-white text-md pt-1">
                     10:00 - 17:00
                   </p>
                 </div>
-                <div className="bg-black border border-white/10 rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-full text-black px-5 text-sm sm:text-md">
+                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 ">
+                  <div className="p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
                     {language === "en" ? "Saturday" : "Sâmbată"}
                   </div>
-                  <p className="my-0.5 mx-2 text-white text-lg pt-1">
+                  <p className="w-full my-0.5 mx-2 text-white pt-1 text-md sm:text-md">
                     10:00 - 15:00
                   </p>
                 </div>
-                <div className="bg-black border border-white/10 rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-full text-black px-5 text-sm sm:text-md">
+                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 ">
+                  <div className="p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
                     {language === "en" ? "Sunday" : "Duminică"}
                   </div>
-                  <p className="my-0.5 mx-2 text-white text-lg pt-1">
+                  <p className="my-0.5 mx-2 text-white text-md pt-1">
                     {language === "en" ? "Closed" : "Închis"}
                   </p>
                 </div>
-
               </div>
             </div>
             <div className="sm:flex sm:justify-center py-10 sm:p-10 w-full">
@@ -451,6 +450,7 @@ https://www.dncukaccounting.org`,
                </div>
             </div>
           </div>
-      </footer>    </section>
+      </footer>    
+      </section>
   );
 }
