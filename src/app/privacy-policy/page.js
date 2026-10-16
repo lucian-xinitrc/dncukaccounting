@@ -389,7 +389,7 @@ https://www.dncukaccounting.org`,
           ))}
         </div>
       </main>
-     <footer className="overflow-hidden dark:bg-black shadow-xl/20 flex justify-center p-20 dark:text-white">
+    <footer className="overflow-hidden dark:bg-black shadow-xl/20 flex justify-center p-10 sm:p-20 dark:text-white">
           <div className="w-full">
           <div className="sm:grid-cols-3 w-full sm:flex gap-5">
             <div className="py-10 sm:p-10 w-full">
