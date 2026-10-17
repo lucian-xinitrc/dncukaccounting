@@ -1,9 +1,10 @@
 'use client'
 import Image from "next/image";
-import { CookieConsent, Main, NavbarNav, Header, Footer } from './components.js';
+import { CookieConsent, ScrollUp, Footer } from './components.js';
 import { FaWhatsapp, FaArrowLeft, FaArrowRight, FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineAlternateEmail, MdEmail } from "react-icons/md";
 import { useState, useEffect } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 export default function Home() {
   const slides = [
@@ -43,6 +44,7 @@ export default function Home() {
     ];
   const [current, setCurrent] = useState(0);
   const [language, setLanguage] = useState("en");
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -59,9 +61,26 @@ export default function Home() {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
   };
   const phoneNumber = "";
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "ro" : "en"));
+
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("dncuk_language");
+
+    if (savedLanguage === "ro" || savedLanguage === "en") {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+
+  const changeToEn = () => {
+    localStorage.setItem("dncuk_language", "en");
+    setLanguage("en");
   };
+
+  const changeToRo = () => {
+    localStorage.setItem("dncuk_language", "ro");
+    setLanguage("ro");
+  };
+
   return (
     <>
     <section>
@@ -158,7 +177,8 @@ export default function Home() {
         <div className="bg-[#c84449] rounded-full p-1">
           
           <button
-            onClick={() => setLanguage("en")}
+
+            onClick={changeToEn}
             className={`py-2 px-2.5 rounded-full font-bold transition ${
               language === "en"
                 ? "bg-[whitesmoke] text-black"
@@ -168,7 +188,7 @@ export default function Home() {
           </button>
 
           <button
-            onClick={() => setLanguage("ro")}
+            onClick={changeToRo}
             className={`py-2 px-2.5 rounded-full font-bold transition ${
               language === "ro"
                 ? "bg-[whitesmoke] text-black"
@@ -196,68 +216,8 @@ export default function Home() {
         ))}
       </div>
     </header>
-    <footer className="overflow-hidden dark:bg-black shadow-xl/20 flex justify-center p-10 sm:p-20 dark:text-white">
-          <div className="w-full">
-          <div className="sm:grid-cols-3 w-full sm:flex gap-5">
-            <div className="py-10 sm:p-10 w-full">
-              <div>
-                <h1 className="text-3xl">DNCUKACCOUNTING</h1>
-                <h2 className="mt-2 ml-5 text-1xl">Unit 120 Ability House,</h2>
-                <h2 className="ml-5 text-1xl">121 Brooker Road, Waltham Abbey</h2>
-                <h2 className="ml-5 text-1xl">Essex, England</h2>
-                <h2 className="ml-5 text-1xl">EN9 1JH</h2>
-              </div>
-              <div>
-                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 w-full">
-                  <div className="w-[300px] p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
-                    {language === "en" ? "Monday - Friday" : "Luni - Vineri"}
-                  </div>
-                  <p className="w-[300px] my-0.5 mx-2 text-white text-md pt-1">
-                    10:00 - 17:00
-                  </p>
-                </div>
-                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
-                    {language === "en" ? "Saturday" : "Sâmbată"}
-                  </div>
-                  <p className="w-full my-0.5 mx-2 text-white pt-1 text-md sm:text-md">
-                    10:00 - 15:00
-                  </p>
-                </div>
-                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
-                    {language === "en" ? "Sunday" : "Duminică"}
-                  </div>
-                  <p className="my-0.5 mx-2 text-white text-md pt-1">
-                    {language === "en" ? "Closed" : "Închis"}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="sm:flex sm:justify-center py-10 sm:p-10 w-full">
-              <div className="block">
-                <h1 className="text-3xl">Quick links</h1>
-                <a href="/privacy-policy" className="block ml-5 p-2 hover:underline">Privacy Policy</a>
-              </div>
-            </div>
-            <div className="flex justify-center sm:p-10 w-full">
-              <div>
-                <h1 className="text-3xl">Meet the Team</h1>
-                <p className="mt-5 block ml-5 p-1 hover:underline">Contact</p>
-                <a href="" className="block ml-5 p-1 hover:underline flex"><MdEmail className="text-xl mx-2" /> info@dncukaccounting.com</a>
-            
-              </div>
-            </div>
-            </div>
-            <div className="w-full">
-              <hr className="sm:w-7xl my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-
-              <div className="flex justify-center">
-                <span className="text-sm text-center text-gray-500 sm:text-center dark:text-gray-400">© 2026 <a href="https://dncukaccounting.org/" className="hover:underline">DNCUKACCOUNTING</a>. All Rights Reserved.</span>
-               </div>
-            </div>
-          </div>
-      </footer>
+    <Footer language={language} />
+    <ScrollUp />
     </section>
     </>
   );

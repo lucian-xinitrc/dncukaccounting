@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { MdOutlineAlternateEmail, MdEmail } from "react-icons/md";
-import { FaInstagram, FaLinkedinIn, FaGithub, FaPhoneAlt } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaGithub, FaPhoneAlt, FaArrowUp } from "react-icons/fa";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'flowbite-react';
 import { Cookie, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
@@ -20,6 +20,7 @@ const CookieConsent = () => {
 
   const handleAccept = () => {
     localStorage.setItem(COOKIE_KEY, 'accepted');
+    localStorage.setItem("dncuk_language", 'en');
     setOpenCookieConsent(false);
   };
 
@@ -114,10 +115,27 @@ const CookieConsent = () => {
   );
 };
 
-const Footer = () => {
+const ScrollUp = () => {
   return (
     <>
-      <footer className="overflow-hidden dark:bg-black shadow-xl/20 flex justify-center p-20 dark:text-white">
+      <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Back to top"
+      title="Back to top"
+      className="fixed bottom-6 right-6 z-50 bg-[#c84449] rounded-full p-1 flex items-center justify-center font-bold shadow-lg transition hover:bg-[#a83237]"
+    >
+      <div className="p-3 bg-white rounded-full">
+        <FaArrowUp className="text-black text-xl" />
+      </div>
+    </button>
+    </>
+  );
+}
+
+const Footer = ({language}) => {
+  return (
+    <>
+      <footer className="overflow-hidden dark:bg-black shadow-xl/20 flex justify-center p-10 sm:p-20 dark:text-white">
           <div className="w-full">
           <div className="sm:grid-cols-3 w-full sm:flex gap-5">
             <div className="py-10 sm:p-10 w-full">
@@ -129,33 +147,30 @@ const Footer = () => {
                 <h2 className="ml-5 text-1xl">EN9 1JH</h2>
               </div>
               <div>
-                <div className="bg-[#c84449] rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-full text-black px-5">
+                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 w-full">
+                  <div className="w-[300px] p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
                     {language === "en" ? "Monday - Friday" : "Luni - Vineri"}
                   </div>
-                  <p className="my-0.5 mx-2 text-white text-lg pt-1">
+                  <p className="w-[300px] my-0.5 mx-2 text-white text-md pt-1">
                     10:00 - 17:00
                   </p>
                 </div>
-                <div className="bg-[#c84449] rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-full text-black px-5">
-                    {language === "en" ? "Saturday" : "Sambata"}
+                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 ">
+                  <div className="p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
+                    {language === "en" ? "Saturday" : "Sâmbată"}
                   </div>
-                  <p className="my-0.5 mx-2 text-white text-lg pt-1">
+                  <p className="w-full my-0.5 mx-2 text-white pt-1 text-md sm:text-md">
                     10:00 - 15:00
                   </p>
                 </div>
-                <div className="bg-[#c84449] rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-full text-black px-5">
-                    {language === "en" ? "Sunday" : "Duminica"}
+                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 ">
+                  <div className="p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
+                    {language === "en" ? "Sunday" : "Duminică"}
                   </div>
-                  <p className="my-0.5 mx-2 text-white text-lg pt-1">
-                    {language === "en" ? "Closed" : "Inchis"}
+                  <p className="my-0.5 mx-2 text-white text-md pt-1">
+                    {language === "en" ? "Closed" : "Închis"}
                   </p>
                 </div>
-                <h2 className="ml-5 text-1xl">121 Brooker Road, Waltham Abbey</h2>
-                <h2 className="ml-5 text-1xl">Essex, England</h2>
-                <h2 className="ml-5 text-1xl">EN9 1JH</h2>
               </div>
             </div>
             <div className="sm:flex sm:justify-center py-10 sm:p-10 w-full">
@@ -181,9 +196,9 @@ const Footer = () => {
                </div>
             </div>
           </div>
-      </footer>
+      </footer>    
     </>
   );
 }
 
-export { CookieConsent, Footer };
+export { CookieConsent, ScrollUp, Footer };
