@@ -22,7 +22,7 @@ export default function Home() {
   const [language, setLanguage] = useState("en");
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("dncuk_language");
+    const savedLanguage = sessionStorage.getItem("dncuk_language");
 
     if (savedLanguage === "ro" || savedLanguage === "en") {
       setLanguage(savedLanguage);
@@ -30,12 +30,12 @@ export default function Home() {
   }, []);
 
   const changeToEn = () => {
-    localStorage.setItem("dncuk_language", "en");
+    sessionStorage.setItem("dncuk_language", "en");
     setLanguage("en");
   };
 
   const changeToRo = () => {
-    localStorage.setItem("dncuk_language", "ro");
+    sessionStorage.setItem("dncuk_language", "ro");
     setLanguage("ro");
   };
   useEffect(() => {
@@ -130,6 +130,13 @@ Scop: Reținerea preferinței privind bannerul, pentru a evita afișarea repetat
 Date stocate: CHEIE dncuk_cookie_consent VALOARE accepted sau declined.
 
 Durată: localStorage păstrează datele până când acestea sunt șterse de vizitator sau eliminate de codul site-ului, dacă nu este configurată o expirare.
+
+Scop: Reținerea preferinței privind limba dorită, pentru a putea fi salvată alegerea pentru toate paginile. 
+
+Date stocate: CHEIE dncuk_language VALOARE en sau ro.
+
+Durată: localStorage păstrează datele până când acestea sunt șterse de vizitator sau eliminate de codul site-ului, dacă nu este configurată o expirare.
+
 
 Utilizarea localStorage poate intra sub incidența PECR din Regatul Unit, în funcție de scop și circumstanțe.
 

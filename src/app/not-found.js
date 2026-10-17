@@ -22,7 +22,7 @@ export default function Home() {
   const [language, setLanguage] = useState("en");
 
    useEffect(() => {
-    const savedLanguage = localStorage.getItem("dncuk_language");
+    const savedLanguage = sessionStorage.getItem("dncuk_language");
 
     if (savedLanguage === "ro" || savedLanguage === "en") {
       setLanguage(savedLanguage);
@@ -30,12 +30,12 @@ export default function Home() {
   }, []);
 
   const changeToEn = () => {
-    localStorage.setItem("dncuk_language", "en");
+    sessionStorage.setItem("dncuk_language", "en");
     setLanguage("en");
   };
 
   const changeToRo = () => {
-    localStorage.setItem("dncuk_language", "ro");
+    sessionStorage.setItem("dncuk_language", "ro");
     setLanguage("ro");
   };
   useEffect(() => {

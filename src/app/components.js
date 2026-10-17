@@ -11,7 +11,7 @@ const CookieConsent = () => {
   const [openCookieConsent, setOpenCookieConsent] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_KEY);
+    const consent = sessionStorage.getItem(COOKIE_KEY);
 
     if (!consent) {
       setOpenCookieConsent(true);
@@ -19,13 +19,13 @@ const CookieConsent = () => {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem(COOKIE_KEY, 'accepted');
-    localStorage.setItem("dncuk_language", 'en');
+    sessionStorage.setItem(COOKIE_KEY, 'accepted');
+    sessionStorage.setItem("dncuk_language", 'en');
     setOpenCookieConsent(false);
   };
 
   const handleDecline = () => {
-    localStorage.setItem(COOKIE_KEY, 'declined');
+    sessionStorage.setItem(COOKIE_KEY, 'declined');
     setOpenCookieConsent(false);
   };
 

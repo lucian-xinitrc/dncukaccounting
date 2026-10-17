@@ -4,7 +4,7 @@ import { CookieConsent, ScrollUp, Footer } from './components.js';
 import { FaWhatsapp, FaArrowLeft, FaArrowRight, FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineAlternateEmail, MdEmail } from "react-icons/md";
 import { useState, useEffect } from "react";
-import { FaArrowUp } from "react-icons/fa";
+
 
 export default function Home() {
   const slides = [
@@ -64,7 +64,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("dncuk_language");
+    const savedLanguage = sessionStorage.getItem("dncuk_language");
 
     if (savedLanguage === "ro" || savedLanguage === "en") {
       setLanguage(savedLanguage);
@@ -72,12 +72,12 @@ export default function Home() {
   }, []);
 
   const changeToEn = () => {
-    localStorage.setItem("dncuk_language", "en");
+    sessionStorage.setItem("dncuk_language", "en");
     setLanguage("en");
   };
 
   const changeToRo = () => {
-    localStorage.setItem("dncuk_language", "ro");
+    sessionStorage.setItem("dncuk_language", "ro");
     setLanguage("ro");
   };
 
@@ -118,6 +118,7 @@ export default function Home() {
           key={current}
           className="max-w-3xl animate-fade-in"
         >
+            
             <h1 className="mb-6 text-5xl font-bold leading-tight sm:text-6xl lg:text-8xl">
               {slides[current].title[language]}
 
