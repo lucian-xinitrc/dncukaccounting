@@ -135,8 +135,8 @@ const ScrollUp = () => {
 const Footer = ({language}) => {
   return (
     <>
-      <footer className="overflow-hidden dark:bg-black shadow-xl/20 flex justify-center p-10 sm:p-20 dark:text-white">
-          <div className="w-full">
+      <footer className="block overflow-hidden dark:bg-black shadow-xl/20 p-5 sm:px-20 dark:text-white">
+          <div className="w-full overflow-hidden">
           <div className="sm:grid-cols-3 w-full sm:flex gap-5">
             <div className="py-10 sm:p-10 w-full">
               <div>
@@ -147,30 +147,26 @@ const Footer = ({language}) => {
                 <h2 className="ml-5 text-1xl">EN9 1JH</h2>
               </div>
               <div>
-                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 w-full">
-                  <div className="w-[300px] p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
-                    {language === "en" ? "Monday - Friday" : "Luni - Vineri"}
-                  </div>
-                  <p className="w-[300px] my-0.5 mx-2 text-white text-md pt-1">
-                    10:00 - 17:00
-                  </p>
-                </div>
-                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
-                    {language === "en" ? "Saturday" : "Sâmbată"}
-                  </div>
-                  <p className="w-full my-0.5 mx-2 text-white pt-1 text-md sm:text-md">
-                    10:00 - 15:00
-                  </p>
-                </div>
-                <div className="bg-black border border-white/10 rounded-xl sm:rounded-full p-1 flex font-bold my-2 ">
-                  <div className="p-2 bg-white rounded-xl sm:rounded-full text-black px-5 text-sm sm:text-md">
-                    {language === "en" ? "Sunday" : "Duminică"}
-                  </div>
-                  <p className="my-0.5 mx-2 text-white text-md pt-1">
-                    {language === "en" ? "Closed" : "Închis"}
-                  </p>
-                </div>
+              <div className="bg-black rounded-xl font-bold my-2 w-auto">
+              <h1 className="text-2xl border-b border-white/20 p-2 px-10 mb-2">Availability Hours</h1>
+                <table class="table-fixed">
+                  <tbody>
+                    <tr>
+                      <td>{language === "en" ? "Monday - Friday " : "Luni - Vineri "}</td>
+                      <td>10:00 - 17:00</td>
+                    </tr>
+                    <tr>
+                      <td>{language === "en" ? "Saturday" : "Sâmbată"}</td>
+                      <td>10:00 - 15:00</td>
+                    </tr>
+                    <tr>
+                      <td>{language === "en" ? "Sunday" : "Duminică"}</td>
+                      <td>{language === "en" ? "Closed" : "Închis"}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+                
               </div>
             </div>
             <div className="sm:flex sm:justify-center py-10 sm:p-10 w-full">
