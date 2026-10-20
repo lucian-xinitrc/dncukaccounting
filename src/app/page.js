@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { CookieConsent, ScrollUp, Footer } from './components.js';
+import { CookieConsent, ScrollUp, AboutUs, Footer } from './components.js';
 import { FaWhatsapp, FaArrowLeft, FaArrowRight, FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineAlternateEmail, MdEmail } from "react-icons/md";
 import { useState, useEffect } from "react";
@@ -163,41 +163,19 @@ export default function Home() {
         <button
           onClick={prevSlide}
           aria-label="Previous slide"
-          className="hidden sm:flex h-11 w-11 items-center justify-center rounded-full border border-white/40 text-xl transition hover:bg-white hover:text-black"
+          className="hidden sm:flex h-11 w-11 items-center justify-center rounded-full text-xl transition hover:bg-white hover:text-black"
         >
-          <FaArrowLeft />
+          
         </button>
 
         <button
           onClick={nextSlide}
           aria-label="Next slide"
-          className="hidden sm:flex h-11 w-11 items-center justify-center rounded-full border border-white/40 text-xl transition hover:bg-white hover:text-black"
+          className="hidden sm:flex h-11 w-11 items-center justify-center rounded-full text-xl transition hover:bg-white hover:text-black"
         >
-         <FaArrowRight />
+     
         </button>
-        <div className="bg-[#c84449] rounded-full p-1">
-          
-          <button
-
-            onClick={changeToEn}
-            className={`py-2 px-2.5 rounded-full font-bold transition ${
-              language === "en"
-                ? "bg-[whitesmoke] text-black"
-                : "bg-[#c84449] text-white"
-            }`}
-          >EN
-          </button>
-
-          <button
-            onClick={changeToRo}
-            className={`py-2 px-2.5 rounded-full font-bold transition ${
-              language === "ro"
-                ? "bg-[whitesmoke] text-black"
-                : "bg-[#c84449] text-white"
-            }`}
-          >RO
-          </button>
-        </div>
+        
       </div>
 
       {/* Slide indicators */}
@@ -217,8 +195,34 @@ export default function Home() {
         ))}
       </div>
     </header>
+    <AboutUs language={language} />
     <Footer language={language} />
     <ScrollUp />
+    <div className="fixed top-6 right-6 z-50 rounded-full bg-[#c84449] p-1 shadow-lg">
+      <button
+        onClick={changeToEn}
+        aria-label="Switch to English"
+        className={`rounded-full px-2.5 py-2 font-bold transition ${
+          language === "en"
+            ? "bg-[whitesmoke] text-black"
+            : "bg-[#c84449] text-white"
+        }`}
+      >
+        EN
+      </button>
+
+      <button
+        onClick={changeToRo}
+        aria-label="Schimbă în română"
+        className={`rounded-full px-2.5 py-2 font-bold transition ${
+          language === "ro"
+            ? "bg-[whitesmoke] text-black"
+            : "bg-[#c84449] text-white"
+        }`}
+      >
+        RO
+      </button>
+    </div>
     </section>
     </>
   );
