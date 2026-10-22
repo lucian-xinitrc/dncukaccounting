@@ -22,7 +22,36 @@ const COOKIE_KEY = 'dncuk_cookie_consent';
 
 const CookieConsent = () => {
   const [openCookieConsent, setOpenCookieConsent] = useState(false);
-
+  const content = {
+    title: {
+      en: "Privacy & Cookies",
+      ro: "Confidențialitate și cookie-uri",
+    },
+    subtitle: {
+      en: "Your privacy matters",
+      ro: "Confidențialitatea ta contează",
+    },
+    text: {
+      en: "The only cookies we use are strictly necessary for the proper functioning of the website and blog. We do not retain any personal tracking data.",
+      ro: "Singurele cookie-uri pe care le folosim sunt strict necesare pentru funcționarea corespunzătoare a site-ului și a blogului. Nu stocăm date personale în scopuri de urmărire.",
+    },
+    subtext: {
+      en: "By selecting Accept, you acknowledge our Privacy Policy and the use of essential cookies.",
+      ro: "Prin selectarea opțiunii „Accept”, confirmi că ai luat la cunoștință Politica de confidențialitate și utilizarea cookie-urilor esențiale.",
+    },
+    link1: {
+      en: "Read Privacy Policy",
+      ro: "Citește politica de confidențialitate",
+    },
+    button1: {
+      en: "Decline",
+      ro: "Refuz",
+    },
+    button2: {
+      en: "I acknowledge",
+      ro: "Am luat la cunoștință",
+    },
+  };
   useEffect(() => {
     const consent = sessionStorage.getItem(COOKIE_KEY);
 
@@ -42,53 +71,66 @@ const CookieConsent = () => {
     setOpenCookieConsent(false);
   };
 
+  const [cButtonLanguage, setCookieLanguage] = useState("ro");
+  const cookieLanguage = () => {
+    cButtonLanguage === "en" ?
+      setCookieLanguage("ro") :
+      setCookieLanguage("en")
+  }
   return (
   	<>
     <Modal
-  show={openCookieConsent}
-  onClose={() => {}}
-  dismissible={false}
-  position="center"
-  className="z-[9999] sm:mx-[30%] h-screen flex justify-center items-center pt-[10%] bg-transparent"
->
+        show={openCookieConsent}
+        onClose={() => {}}
+        dismissible={false}
+        position="center"
+        className="z-[9999] sm:mx-[30%] h-screen flex justify-center items-center pt-[10%] bg-transparent"
+      >
       <ModalHeader className="rounded-t-lg !border-b !border-black/10 !px-6 !py-5 bg-[whitesmoke]">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl ">
-            <Cookie className="h-6 w-6 text-black" />
-          </div>
-
-          <div>
+          <div className="mx-5">
             <p className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-black">
-              DNC UK Accounting
+              DNCUKAccounting 
             </p>
             <h2 className="text-xl font-bold text-black sm:text-2xl">
-              Privacy & Cookies
+              {content.title[cButtonLanguage]}
+              
             </h2>
+            
           </div>
+          
         </div>
+
       </ModalHeader>
 
-      <ModalBody className="bg-white !text-black">
-        <div className="px-10 py-6">
-          <div className="mb-5 flex items-start gap-3">
-            
 
-            <div className="px-10">
+      <ModalBody className="bg-white !text-black">
+        <div className="px-5 py-6">
+
+          <div className="mb-5 flex items-start gap-3">
+          <div className="right-6 rounded-full bg-[#c84449] p-2 shadow-lg">
+            <button
+                onClick={cookieLanguage}
+                aria-label="Switch to English"
+                className="font-bold bg-white flex-right relative text-black px-2.5 py-1.5 rounded-full"
+              >
+                {cButtonLanguage}
+              </button>
+          </div>
+            <div className="px-5">
               <h3 className="mb-2 font-semibold text-black">
-                Your privacy matters
+                {content.subtitle[cButtonLanguage]}
               </h3>
 
               <p className="text-sm leading-7 text-black ml-5">
-                The only cookies we use are strictly necessary for the proper functioning of the website and blog. We do not retain any personal tracking data.
+                {content.text[cButtonLanguage]}
               </p>
             </div>
           </div>
 
           <div className="rounded-xl border border-black/10 bg-[whitesmoke] p-4">
             <p className="text-sm leading-7 text-black">
-              By selecting <span className="font-semibold text-black">Accept</span>,
-              you acknowledge our Privacy Policy and the use of essential
-              cookies.
+              {content.subtext[cButtonLanguage]}
             </p>
 
             <a
@@ -97,7 +139,7 @@ const CookieConsent = () => {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#c84449] transition hover:underline"
             >
-              Read Privacy Policy
+              {content.link1[cButtonLanguage]}
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
@@ -109,17 +151,17 @@ const CookieConsent = () => {
           <button
             type="button"
             onClick={handleDecline}
-            className="rounded-lg border border-black/10 hover:cursor-pointer text-[#c84449] px-6 py-3 text-sm font-bold hover:bg-[#c84449] hover:text-[#00141D] transition duration-700 ease-in-out focus:outline-none focus:ring-2 focus:ring-cyan-300/50"
+            className="rounded-lg border border-black/10 hover:cursor-pointer text-[#c84449] px-6 py-3 text-sm font-bold hover:bg-[#c84449] hover:text-[whitesmoke] transition duration-700 ease-in-out focus:outline-none focus:ring-2 focus:ring-cyan-300/50"
           >
-            Decline
+            {content.button1[cButtonLanguage]}
           </button>
 
           <button
             type="button"
             onClick={handleAccept}
-            className="rounded-lg border border-black/10 hover:cursor-pointer text-[#c84449] px-6 py-3 text-sm font-bold hover:bg-[#c84449] hover:text-[#00141D] transition duration-700 ease-in-out focus:outline-none focus:ring-2 focus:ring-cyan-300/50"
+            className="rounded-lg border border-black/10 hover:cursor-pointer text-[#c84449] px-6 py-3 text-sm font-bold hover:bg-[#c84449] hover:text-[whitesmoke] transition duration-700 ease-in-out focus:outline-none focus:ring-2 focus:ring-cyan-300/50"
           >
-            Accept Cookies
+            {content.button2[cButtonLanguage]}
           </button>
         </div>
       </ModalFooter>
@@ -508,12 +550,15 @@ const Footer = ({language}) => {
               </div>
             </div>
             </div>
-            <div className="w-full">
-              <hr className="sm:w-7xl my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <div className="w-full h-[80px] items-center content-center">
+              <div className="">
+                 <hr className="sm:w-7xl my-2 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
 
-              <div className="flex justify-center">
-                <span className="text-sm text-center text-gray-500 sm:text-center dark:text-gray-400">© 2026 <a href="https://dncukaccounting.org/" className="hover:underline">DNCUKACCOUNTING</a>. All Rights Reserved.</span>
-               </div>
+                <div className="flex justify-center">
+
+                  <span className="text-sm text-center text-gray-500 sm:text-center dark:text-gray-400">© 2026 <a href="https://dncukaccounting.org/" className="hover:underline">DNCUKACCOUNTING</a>. All Rights Reserved. Dev & Mantainer <a href="https://www.mebhevy.com" className="font-bold hover:underline">Mebhevy LTD</a></span>
+                 </div>
+              </div>
             </div>
           </div>
       </footer>    

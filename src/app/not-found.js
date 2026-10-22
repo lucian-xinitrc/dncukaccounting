@@ -30,12 +30,18 @@ export default function Home() {
   }, []);
 
   const changeToEn = () => {
-    sessionStorage.setItem("dncuk_language", "en");
+    if( sessionStorage.getItem("dncuk_language") === "accepted") {
+      sessionStorage.setItem("dncuk_language", "en");
+      
+    }
     setLanguage("en");
   };
 
   const changeToRo = () => {
-    sessionStorage.setItem("dncuk_language", "ro");
+    if( sessionStorage.getItem("dncuk_language") === "accepted") {
+      sessionStorage.setItem("dncuk_language", "ro");
+      
+    }
     setLanguage("ro");
   };
   useEffect(() => {

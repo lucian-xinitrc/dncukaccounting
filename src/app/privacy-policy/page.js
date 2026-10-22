@@ -14,7 +14,7 @@ export default function Home() {
         },
         description: {
           ro: "O firmă de contabilitate și consultanță fiscală în cadrul căreia excelența și calitatea serviciilor sunt primordiale.",
-          en: "An accounting and tax consultancy firm where excellence and quality of service are our top priorities.",
+          en: "An accounting and tax consultancy firm where excellence and quality of service are our top priorities. ",
         },
       },
     ];
@@ -30,12 +30,18 @@ export default function Home() {
   }, []);
 
   const changeToEn = () => {
-    sessionStorage.setItem("dncuk_language", "en");
+    if( sessionStorage.getItem("dncuk_language") === "accepted") {
+      sessionStorage.setItem("dncuk_language", "en");
+      
+    }
     setLanguage("en");
   };
 
   const changeToRo = () => {
-    sessionStorage.setItem("dncuk_language", "ro");
+    if( sessionStorage.getItem("dncuk_language") === "accepted") {
+      sessionStorage.setItem("dncuk_language", "ro");
+      
+    }
     setLanguage("ro");
   };
   useEffect(() => {
@@ -91,13 +97,13 @@ This policy takes into account applicable UK legislation, including the UK GDPR,
           en: "2. Data Controller",
         },
         text: {
-          ro: `Companie: DNCUKACCOUNTING LTD
-Număr de înregistrare: 14218577
+          ro: `
+DNCUKACCOUNTING LTD O societate cu răspundere limitată înregistrată în Anglia sub numărul de înregistrare al societății 14218577
 Sediu social: Unit 120 Ability House, 121 Brooker Road, Waltham Abbey, Essex, England, EN9 1JH
 Email: info@dncukaccounting.com
 Site: www.dncukaccounting.org`,
-          en: `Company: DNCUKACCOUNTING LTD
-Company number: 14218577
+          en: `Company: 
+DNCUKACCOUNTING LTD, a limited company registered in England under company number 14218577
 Registered office: Unit 120 Ability House, 121 Brooker Road, Waltham Abbey, Essex, England, EN9 1JH
 Email: info@dncukaccounting.com
 Website: www.dncukaccounting.org`,
