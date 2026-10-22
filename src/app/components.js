@@ -84,7 +84,7 @@ const CookieConsent = () => {
         onClose={() => {}}
         dismissible={false}
         position="center"
-        className="z-[9999] sm:mx-[30%] h-screen flex justify-center items-center pt-[10%] bg-transparent"
+        className="z-[9999] sm:mx-[20%] lg:mx-[30%] sm:h-screen flex justify-center items-center pt-[10%] bg-transparent no-scrollbar"
       >
       <ModalHeader className="rounded-t-lg !border-b !border-black/10 !px-6 !py-5 bg-[whitesmoke]">
         <div className="flex items-center gap-3">
@@ -515,7 +515,7 @@ const Footer = ({language}) => {
               <div>
               <div className="bg-transparent rounded-xl font-bold my-2 w-auto">
               <h1 className="text-2xl border-b border-white/20 p-2 px-10 mb-2">Availability Hours</h1>
-                <table class="table-fixed">
+                <table className="table-fixed">
                   <tbody>
                     <tr>
                       <td>{language === "en" ? "Monday - Friday " : "Luni - Vineri "}</td>

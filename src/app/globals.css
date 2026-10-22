@@ -52,6 +52,22 @@ td {
   @apply px-5
 }
 
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #00a9c7 transparent;
+}
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+}
 
 
 .services-list {
