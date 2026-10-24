@@ -351,7 +351,7 @@ const AboutUs = ({ language }) => {
         <div className="flex flex-col justify-center lg:flex-row">
           <div className="w-full p-6 sm:p-10 lg:w-1/2 lg:p-16 xl:p-20">
             <img
-              className="hidden w-full rounded-[10px] shadow-xl/30 dark:block"
+              className="w-full rounded-[10px] shadow-xl/30 block"
               src="/images/header/slide3.jpeg"
               alt="Accounting services"
             />
@@ -501,7 +501,7 @@ const AboutUs = ({ language }) => {
 const Footer = ({language}) => {
   return (
     <>
-      <footer className="block overflow-hidden bg-[#222B3A] shadow-xl/20 p-5 sm:px-20 dark:text-white">
+      <footer className="block overflow-hidden bg-[#222B3A] shadow-xl/20 p-5 sm:px-20 text-white">
           <div className="w-full overflow-hidden">
           <div className="sm:grid-cols-3 w-full sm:flex gap-5">
             <div className="py-10 sm:p-10 w-full">
